@@ -1,21 +1,26 @@
 import axios from 'axios';
 
-const baseURL = 'https://local:4001';
+const baseURL = 'https://localhost:4001';
 
-const userLogin = async (headers, body) => {
+const userLogin = async (body) => {
     try {
         const {data} = await axios({
             baseURL,
             url: "/api/User/login",
             method: 'post',
-            headers,
             data: body,
         });
     console.log("[SUCCESS] USER LOGIN", data);
-    return data;
+    return {
+        data: data,
+        success: true,
+    };
     } catch (e) {
         console.error("[FAIL] USER LOGIN", e);
-        return e;
+        return {
+            data: e,
+            success: false,
+        };
     }
 };
 
@@ -29,10 +34,16 @@ const createServer = async (headers, body) => {
             data: body,
         });
     console.log("[SUCCESS] CREATE SERVER", data);
-    return data;
+    return {
+        data: data,
+        success: true,
+    };
     } catch (e) {
         console.error("[FAIL] CREATE SERVER", e);
-        return e;
+        return {
+            data: e,
+            success: false,
+        };
     }
 };
 

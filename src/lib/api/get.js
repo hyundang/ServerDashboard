@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const baseURL = "https://localhost:4001";
+// const baseURL = "https://battlecampusmatchserver.azurewebsites.net";
 
 const getAllServer = async (headers) => {
     try {
@@ -51,7 +52,7 @@ const getServer = async (headers, id) => {
     }
 };
 
-const getMatches = async (headers) => {
+const getAllMatch = async (headers) => {
     try {
         const {data} = await axios({
             baseURL,
@@ -71,7 +72,7 @@ const getApi = {
     getAllDBServer,
     getAllServer,
     getServer,
-    getMatches,
+    getAllMatch,
 };
 
 export default getApi;

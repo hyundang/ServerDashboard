@@ -65,10 +65,10 @@ export default withRouter(({history}) => {
         const header = {
             "Authorization": "Bearer "+localStorage.getItem("token")
         };
-        const body = {
+        const params = {
             name: name.value
         }
-        await putApi.renameServer(header, body, ServerID);
+        await putApi.renameServer(header, params, ServerID);
         history.push('/server')
     }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://local:4001';
+const baseURL = 'https://localhost:4001';
 
 const renameServer = async (headers, params, id) => {
     try {
